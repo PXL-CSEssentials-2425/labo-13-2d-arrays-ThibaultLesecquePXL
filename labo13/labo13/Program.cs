@@ -1,25 +1,38 @@
 ﻿Random rnd = new Random();
-int[,] optellingArray = new int[3, 5];
+int[,] sumArray = new int[3, 5];
 
-for (int i = 0; i < optellingArray.GetLength(1); i++)
+// Random integers op rij 1
+for (int i = 0; i < sumArray.GetLength(1); i++)
 {
-    optellingArray[0, i] = rnd.Next(1, 10);
+    sumArray[0, i] = rnd.Next(1, 11);
 }
 
-for (int i = 0; i < optellingArray.GetLength(1); i++)
+Console.WriteLine("==== 2-dimensionele array ====");
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Geef 5 getallen voor opvullen van tweede rij");
+
+// Input integers op rij 2
+for (int i = 0; i < sumArray.GetLength(1); i++)
 {
     Console.Write($"Getal {i + 1}: ");
-    int.TryParse(Console.ReadLine(), out  optellingArray[1, i]);
+    int.TryParse(Console.ReadLine(), out sumArray[1, i]);
 }
 
-for (int i = 0; i < optellingArray.GetLength(1); i++)
+Console.WriteLine();
+
+// Optelling van rij 1 en rij 2 op rij 3
+for (int i = 0; i < sumArray.GetLength(1); i++)
 {
-    optellingArray[2, i] = optellingArray[1, i] + optellingArray[0, i];
+    sumArray[2, i] = sumArray[1, i] + sumArray[0, i];
 }
 
-for (int i = 0; i < optellingArray.GetLength(0); i++)
+// Uitprinten van de gehele 2D-array
+for (int i = 0; i < sumArray.GetLength(0); i++)
 {
-    Console.WriteLine($"Rij {i+1} ==> {optellingArray[i, 0]}, {optellingArray[i, 1]}, {optellingArray[i, 2]}, {optellingArray[i, 3]}, {optellingArray[i, 4]}");
+    Console.WriteLine($"Rij {i+1} ==> {sumArray[i, 0]}, {sumArray[i, 1]}, {sumArray[i, 2]}, {sumArray[i, 3]}, {sumArray[i, 4]}");
 }
 
-Console.ReadLine();
+Console.WriteLine();
+Console.WriteLine("Druk op een toets om af te sluiten.");
+Console.ReadKey();
